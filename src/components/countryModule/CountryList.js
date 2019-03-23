@@ -1,11 +1,12 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import {List, Button, Skeleton,} from 'antd';
-
+import {List, Button, Skeleton, Typography, Icon} from 'antd';
 import reqwest from 'reqwest';
 
 const count = 3;
-const fakeDataUrl = `https://randomuser.me/api/?results=${count}&inc=name,gender,email,nat&noinfo`;
+// const fakeDataUrl = `https://randomuser.me/api/?results=${count}&inc=name,gender,email,nat&noinfo`;
+const fakeDataUrl = `https://psa-dev.cfapps.io/services/api/v1/countries/`;
+const { Text } = Typography;
 
 class CountryList extends React.Component {
     state = {
@@ -19,8 +20,8 @@ class CountryList extends React.Component {
         this.getData((res) => {
             this.setState({
                 initLoading: false,
-                data: res.results,
-                list: res.results,
+                data: res,
+                list: res,
             });
         });
     }
@@ -76,11 +77,11 @@ class CountryList extends React.Component {
                 loadMore={loadMore}
                 dataSource={list}
                 renderItem={item => (
-                    <List.Item actions={[<a href="/some/valid/uri" >edit</a>, <a href="/some/valid/uri">remove</a>]}>
+                    <List.Item actions={[<a href="/some/valid/uri"><Icon type="edit" /></a>, <a href="/some/valid/uri"><Icon type="delete" /></a>]}>
                         <Skeleton title={false} loading={item.loading} active>
                             <List.Item.Meta
-                                title={<a href="https://ant.design">{item.name.last}</a>}
-                                description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                                title={<Text><Text strong>Country: </Text>{item.countryName}</Text>}
+                                description={<Text><Text strong>Abb: </Text>{item.countryAbb}</Text>}
                             />
                         </Skeleton>
                     </List.Item>
