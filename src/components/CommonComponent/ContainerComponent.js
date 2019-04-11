@@ -1,7 +1,5 @@
 import React from 'react';
 import {Layout, Menu, Icon} from 'antd';
-import CountryComponent from "./MainCountryComponent";
-
 
 const {Header, Content, Footer, Sider,} = Layout;
 

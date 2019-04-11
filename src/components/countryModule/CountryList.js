@@ -3,7 +3,6 @@ import 'antd/dist/antd.css';
 import {List, Button, Skeleton, Typography, Icon} from 'antd';
 import reqwest from 'reqwest';
 import axios from 'axios';
-import CountryModal from "./MainCountryComponent";
 import EditCountryModal from "./EditCountryModal";
 
 const count = 3;

@@ -1,11 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Modal, Form, Input} from 'antd';
-import FormItem from "antd/lib/form/FormItem";
-
 
 const EditCountryModal = Form.create({name: 'form_in_modal'})(
     // eslint-disable-next-line
-    class extends React.Component {
+    class extends Component {
         render() {
             const {
                 visible, onCancel, onCreate, form,
